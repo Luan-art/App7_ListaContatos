@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">App7_ListaContatos</string>
+    <string name="app_name">Lista de Contatos</string>
+    <string name="name">Nome </string>
+    <string name="passoword">Senha</string>
+    <string name="nickName">Apelido </string>
+    <string name="newContact">Novo Contato</string>
+    <string name="newUser">Novo Usuario </string>
+    <string name="user">Usuario</string>
+    <string name="login">Login</string>
+    <string name="btnCadastro">Cadastrar Usuario</string>
+    <string name="confPassord">Confirmar Senha</string>
+    <string name="save"> Salvar </string>
+    <string name="tel"> Telefone </string>
+    <string name = "Contact">Contato</string>
+
 </resources>
