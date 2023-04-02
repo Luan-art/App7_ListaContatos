@@ -12,10 +12,11 @@ public class User {
     public User (String userName, String senha, List<Contact> listaContatos){
         setUserName(userName);
         setSenha(senha);
-        this.listaContatos =  new ArrayList<>();
+        setListaContatos(listaContatos);
     }
 
     public void addContact(Contact contato){
+
         listaContatos.add(contato);
     }
 

@@ -12,5 +12,12 @@
     <string name="save"> Salvar </string>
     <string name="tel"> Telefone </string>
     <string name = "Contact">Contato</string>
-
+    <string name="InvalidLogin">Preencha os campos de login</string>
+    <string name="difPassowords">Senhas diferentes</string>
+    <string name="userExists">Usuario já cadastrado</string>
+    <string name="newUserCreated">Novo Usuario Criado</string>
+    <string name="errorAdd" >Erro ao adcionar Usuario </string>
+    <string name="userInvalid"> Invalido Login </string>
+    <string name="errorAddContact">Error add Contato</string>
+    <string name="difPasswords" > Senhas diferentes</string>
 </resources>

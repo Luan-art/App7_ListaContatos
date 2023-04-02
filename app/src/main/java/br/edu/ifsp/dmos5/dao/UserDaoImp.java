@@ -23,14 +23,16 @@ public class UserDaoImp implements UserDao{
 
     @Override
     public User login(String senha) {
+
         return database.stream()
-                .filter(user -> user.getUserName().equals(senha))
+                .filter(user -> user.getSenha().equals(senha))
                 .findAny()
                 .orElse(null);
     }
 
     @Override
     public User chkUser(String name) {
+
         return database.stream()
                 .filter(user -> user.getUserName().equals(name))
                 .findAny()
