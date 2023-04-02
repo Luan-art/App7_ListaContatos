@@ -40,12 +40,17 @@ public class ContactSpinnerAdapter  extends ArrayAdapter<Contact> {
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         TextView textView = new TextView(getContext());
         textView.setTextColor(Color.BLACK);
+
         if(getItem(position) == null){
             textView.setText("");
         }else {
-            textView.setText(getItem(position).getApelido());
+            String apelido = getItem(position).getApelido();
+            String nome = getItem(position).getName();
+            String texto = apelido + "\n" + nome +"\n" ;
+            textView.setText(texto);
         }
         textView.setPadding(8, 8, 8, 8);
+
         return textView;
     }
 }
