@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ifsp.dmos5.R;
@@ -68,8 +69,15 @@ public class ContactsActivity  extends AppCompatActivity implements View.OnClick
     }
 
     private void pupulateSpinner(User user) {
-        List<Contact> dataset = user.getListaContatos();
-        dataset.add(0, null);
+        List<Contact> dataset;
+        if (user.getListaContatos() == null) {
+            dataset = new ArrayList<>();
+        } else {
+            dataset = user.getListaContatos();
+        }
+        if (dataset.size() == 0 || dataset.get(0) != null) {
+            dataset.add(0, null);
+        }
         ContactSpinnerAdapter adapter = new ContactSpinnerAdapter(this, android.R.layout.simple_spinner_item, dataset);
         mSpinner.setAdapter(adapter);
     }
@@ -94,7 +102,7 @@ public class ContactsActivity  extends AppCompatActivity implements View.OnClick
         UserDao userDao = UserDaoImp.getInstance();
         User user = userDao.chkUser(usuario);
         User userP = userDao.chkPassoword(senha);
-         if (user == null || userP == null) {
+        if (user == null || userP == null) {
             return false;
         }
 
@@ -113,7 +121,7 @@ public class ContactsActivity  extends AppCompatActivity implements View.OnClick
 
     private void openDetailsActivity(Contact contact) {
         if(contact != null){
-            txtName.setText(contact.getApelido());
+            txtName.setText(contact.getName());
             txtTelefone.setText(contact.getTelefone());
         }
 

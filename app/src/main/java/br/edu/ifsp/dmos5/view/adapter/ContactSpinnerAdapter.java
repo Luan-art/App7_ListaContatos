@@ -43,7 +43,7 @@ public class ContactSpinnerAdapter  extends ArrayAdapter<Contact> {
         if(getItem(position) == null){
             textView.setText("");
         }else {
-            textView.setText(getItem(position).getTelefone());
+            textView.setText(getItem(position).getApelido());
         }
         textView.setPadding(8, 8, 8, 8);
         return textView;

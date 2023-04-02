@@ -23,4 +23,6 @@
     <string name="contacts_title" > Contatos</string>
     <string name="new_user_title" > Novo Usuario</string>
     <string name="new_contact_title"  >Novo Contato</string>
+    <string name="ContactCadast">Contato ja criado</string>
+    <string name="newContactCadrest">Novo Contato Cadastrado</string>
 </resources>

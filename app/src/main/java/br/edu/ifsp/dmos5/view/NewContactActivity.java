@@ -29,7 +29,7 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_contact);
 
-        textNewApelido = findViewById(R.id.eddittext_newContact);
+        textNewApelido = findViewById(R.id.eddittext_Ape);
         textNewNome = findViewById(R.id.edittext_name);
         textNewTelefone = findViewById(R.id.edittext_Tel);
         btnCadContact= findViewById(R.id.buttonNewContact);
@@ -53,20 +53,20 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
         String recCadContact = textNewTelefone.getText().toString();
 
         if(chkApelido(recNewApelido, recNome)) {
-            Toast.makeText(this, R.string.userExists, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.ContactCadast, Toast.LENGTH_SHORT).show();
             return;
 
         }
 
-        if(addCad(recNome, recNewApelido,recCadContact)){
-            Toast.makeText(this, R.string.newUserCreated, Toast.LENGTH_LONG).show();
+        if(addCad(recNewApelido,recNome,recCadContact)){
+            Toast.makeText(this, R.string.newContactCadrest, Toast.LENGTH_LONG).show();
 
         }
 
 
     }
 
-    private boolean addCad(String nome, String apelido, String telefone) {
+    private boolean addCad(String apelido, String nome, String telefone) {
 
         Bundle parametros = getIntent().getExtras();
         String usuario = parametros.getString(MainActivity.USUARIO);
@@ -74,10 +74,10 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
 
         UserDao userDao = UserDaoImp.getInstance();
         User user = userDao.chkUser(usuario);
-        Contact contact = new Contact(nome, apelido, telefone);
+        Contact contact = new Contact(apelido,nome, telefone);
 
         if(user == null) {
-            Toast.makeText(this, R.string.errorAddContact, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.userInvalid, Toast.LENGTH_SHORT).show();
             return false;
         }
 
