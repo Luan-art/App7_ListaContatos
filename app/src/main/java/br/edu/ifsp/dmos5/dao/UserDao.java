@@ -6,7 +6,8 @@ public interface UserDao {
 
     void addUser (User usuario);
 
-    User login(String senha);
-
     User chkUser(String name);
+
+    User chkPassoword(String senha);
+
 }

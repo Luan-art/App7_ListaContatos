@@ -38,9 +38,6 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Bundle parametros = getIntent().getExtras();
-        String usuario = parametros.getString(MainActivity.USUARIO);
-        String senha = parametros.getString(MainActivity.SENHA);
 
 
     }
@@ -71,9 +68,12 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
 
     private boolean addCad(String nome, String apelido, String telefone) {
 
+        Bundle parametros = getIntent().getExtras();
+        String usuario = parametros.getString(MainActivity.USUARIO);
+        String senha = parametros.getString(MainActivity.SENHA);
 
-        UserDao userDao = new UserDaoImp();
-        User user = userDao.chkUser(nome);
+        UserDao userDao = UserDaoImp.getInstance();
+        User user = userDao.chkUser(usuario);
         Contact contact = new Contact(nome, apelido, telefone);
 
         if(user == null) {
@@ -94,7 +94,7 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
 
 
     private boolean chkApelido(String recNewApelido, String nome) {
-        UserDao userDao = new UserDaoImp();
+        UserDao userDao =  UserDaoImp.getInstance();
         User user = userDao.chkUser(nome);
         return (user != null && user.findByApelido(recNewApelido) != null);
     }

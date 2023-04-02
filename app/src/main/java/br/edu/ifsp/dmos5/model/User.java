@@ -2,6 +2,10 @@ package br.edu.ifsp.dmos5.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ifsp.dmos5.dao.UserDao;
+import br.edu.ifsp.dmos5.dao.UserDaoImp;
+import br.edu.ifsp.dmos5.view.md5.Criptografia;
+
 public class User {
 
     private String userName;

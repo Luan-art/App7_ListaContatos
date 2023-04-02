@@ -51,11 +51,10 @@ public class ContactsActivity  extends AppCompatActivity implements View.OnClick
         String usuario = parametros.getString(MainActivity.USUARIO);
         String senha = parametros.getString(MainActivity.SENHA);
 
+        UserDao userDao = UserDaoImp.getInstance();
+        User user = userDao.chkUser(usuario);
 
-        UserDao userDao = new UserDaoImp();
-        User user = userDao.login(senha);
-
-        if(!chkUserValido(senha, usuario)){
+        if(!login(senha, usuario)){
             Toast.makeText(this, R.string.userInvalid, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
@@ -83,24 +82,23 @@ public class ContactsActivity  extends AppCompatActivity implements View.OnClick
     }
 
     private void executNewContact() {
-        Intent intent = new Intent(this, ContactsActivity.class);
+        Intent intent = new Intent(this, NewContactActivity.class);
         Bundle parametros = getIntent().getExtras();
         intent.putExtras(parametros);
         startActivity(intent);
         finish();
     }
 
-    public boolean chkUserValido(String senha, String usuario){
+    public boolean login(String senha, String usuario){
 
-        UserDao userDao = new UserDaoImp();
-        User user = userDao.login(senha);
-        User user1 = userDao.chkUser(usuario);
-
-        if (user == null || user1 == null) {
+        UserDao userDao = UserDaoImp.getInstance();
+        User user = userDao.chkUser(usuario);
+        User userP = userDao.chkPassoword(senha);
+         if (user == null || userP == null) {
             return false;
         }
 
-        return user.equals(user1);
+        return user.equals(userP);
 
     }
 
