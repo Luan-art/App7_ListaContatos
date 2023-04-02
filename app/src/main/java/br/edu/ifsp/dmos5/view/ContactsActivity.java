@@ -27,6 +27,8 @@ public class ContactsActivity  extends AppCompatActivity implements View.OnClick
     private Button btnNovoContact;
     private Spinner mSpinner;
 
+    private User mUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +38,8 @@ public class ContactsActivity  extends AppCompatActivity implements View.OnClick
         txtTelefone = findViewById(R.id.textview_Telefone);
         btnNovoContact = findViewById(R.id.buttonContact);
         mSpinner = findViewById(R.id.spinner_Contacts);
+
+        mUser = (User) getIntent().getSerializableExtra("user");
 
         mSpinner.setOnItemSelectedListener(this);
 
@@ -91,6 +95,10 @@ public class ContactsActivity  extends AppCompatActivity implements View.OnClick
         UserDao userDao = new UserDaoImp();
         User user = userDao.login(senha);
         User user1 = userDao.chkUser(usuario);
+
+        if (user == null || user1 == null) {
+            return false;
+        }
 
         return user.equals(user1);
 

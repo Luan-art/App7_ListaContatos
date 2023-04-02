@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ifsp.dmos5.R;
@@ -86,7 +87,7 @@ public class NewUserActivity extends AppCompatActivity implements View.OnClickLi
 
     public boolean addUser(){
 
-        List<Contact> listaContatos = null;
+        List<Contact> listaContatos = new ArrayList<>();;
         String senhaCriptografada = Criptografia.criptografar(textNewSenha.getText().toString());
         UserDao userDao = new UserDaoImp();
         User usuario = new User(textNewUser.getText().toString(), senhaCriptografada, listaContatos );

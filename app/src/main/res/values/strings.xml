@@ -20,4 +20,7 @@
     <string name="userInvalid"> Invalido Login </string>
     <string name="errorAddContact">Error add Contato</string>
     <string name="difPasswords" > Senhas diferentes</string>
+    <string name="contacts_title" > Contatos</string>
+    <string name="new_user_title" > Novo Usuario</string>
+    <string name="new_contact_title"  >Novo Contato</string>
 </resources>

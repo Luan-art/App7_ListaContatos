@@ -15,11 +15,28 @@
             android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
+
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".view.ContactsActivity"
+            android:label="@string/contacts_title"
+            android:parentActivityName=".view.MainActivity" />
+
+        <activity
+            android:name=".view.NewUserActivity"
+            android:label="@string/new_user_title"
+            android:parentActivityName=".view.MainActivity" />
+
+        <activity
+            android:name=".view.NewContactActivity"
+            android:label="@string/new_contact_title"
+            android:parentActivityName=".view.ContactsActivity" />
+
     </application>
 
 </manifest>
